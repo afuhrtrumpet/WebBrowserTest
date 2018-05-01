@@ -1,0 +1,27 @@
+WindowsNoEditor
+Binaries
+DerivedDataCache
+Intermediate
+Saved
+/.vs
+
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+*.DS_Store
+*.swp
+
+ehthumbs.db
+Thumbs.db
+
+Build/
+__pycache__
+local_settings.py
+
+# Built data for maps
+*_BuiltData.uasset
