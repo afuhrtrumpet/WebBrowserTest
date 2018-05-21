@@ -1,0 +1,94 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<style>
+body {
+	background: black;
+}
+#playback-controls {
+	width: 600px;
+}
+#playback-controls .fas {
+	width: 32%;
+	margin: auto;	
+	text-align: center;
+	font-size: 2em;
+	color: gray;
+}
+	</style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script>
+function initialize(){
+	// Update the controls on load
+	//updateTimerDisplay();
+	//updateProgressBar();
+
+	// Clear any old interval.
+	//clearInterval(time_update_interval);
+
+	// Start interval to update elapsed time display and
+	// the elapsed part of the progress bar every second.
+	/*time_update_interval = setInterval(function () {
+		updateTimerDisplay();
+		updateProgressBar();
+	}, 1000)*/
+
+}
+
+function onYouTubeIframeAPIReady() {
+	$('.fa-play').hide();
+	player = new YT.Player('video-placeholder', {
+		width: 600,
+		height: 400,
+		videoId: 'Xa0Q0J5tOP0',
+		playerVars: {
+			color: 'white',
+			playlist: 'taJ60kskkns,FG0fTKAqZ5g',
+			controls: 0,
+			autoplay: 1,
+			disablekb: 1,
+			rel: 0
+		},
+		events: {
+			onReady: initialize
+		}
+	});
+
+	$('.fa-pause').on('click', function() {
+		player.pauseVideo();
+		$('.fa-pause').hide();
+		$('.fa-play').show();
+	});
+
+	$('.fa-play').on('click', function() {
+		player.playVideo();
+		$('.fa-play').hide();
+		$('.fa-pause').show();
+	});
+
+	$('.fa-fast-backward').on('click', function() {
+		player.previousVideo();
+	});
+
+	$('.fa-fast-forward').on('click', function() {
+		player.nextVideo();
+	});
+
+
+}
+	</script>
+</head>
+<body>
+	<div id="video-placeholder"></div>
+	<br>
+	<div id="playback-controls">
+		<i class="fas fa-fast-backward"></i>
+		<i class="fas fa-pause"></i>
+		<i class="fas fa-play"></i>
+		<i class="fas fa-fast-forward"></i>
+	</div>
+</body>
